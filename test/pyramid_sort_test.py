@@ -5,11 +5,11 @@ import pytest
 
 # обычные unit-тесты
 
-test_array = [0, 8, 3, 5]
+test_array = [0, 9, 3, 5]
 
 
 def test_first():
-    assert build_pyramid(test_array) == [0, 3, 5, 8]
+    assert build_pyramid(test_array) == [0, 3, 5, 9]
 
 
 second_array = [766, 1, 9023, 63, 4248]
