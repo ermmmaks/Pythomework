@@ -6,7 +6,6 @@ def test_curry():
     assert sum3_curry(1)(2)(3) == 6
     
 def test_uncurry():
-    sum3_curry = curry(sum_args, 3)
-    sum3_curry(1)(2)(3)
-    sum3_uncurry = uncurry(sum3_curry, 3)
-    assert sum3_uncurry(1, 2, 3) == 6
+    sum4_curry = curry(sum_args, 4)
+    sum4_uncurry = uncurry(sum4_curry, 4)
+    assert sum4_uncurry(1, 2, 3, 4) == 10
