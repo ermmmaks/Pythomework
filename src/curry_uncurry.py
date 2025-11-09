@@ -22,7 +22,8 @@ def uncurry(curried_func, arity):
     def uncurried(*args):
         result = curried_func
         for arg in args:
-            result = curried_func(arg)
+            result = result(arg)
         return result
 
     return uncurried
+
