@@ -1,5 +1,5 @@
 import heapq
-from collections import Counter, defaultdict
+from collections import Counter
 
 class TreeNode:
     def __init__(self, char, freq):
@@ -23,7 +23,7 @@ class Huffman:
     def build_heap(self, frequency):
         heap = []
         for char, freq in frequency.items():
-            node = heapq.heappop(heap)
+            node = TreeNode(char, freq)
             heapq.heappush(heap, node)
         return heap
 
@@ -32,9 +32,9 @@ class Huffman:
             node1 = heapq.heappop(heap)
             node2 = heapq.heappop(heap)
 
-            merged = Node(None, node1.frq + node2.freq)
+            merged = TreeNode(None, node1.freq + node2.freq)
             merged.left = node1
-            merget.right = node2
+            merged.right = node2
 
             heapq.heappush(heap, merged)
 
@@ -49,13 +49,13 @@ class Huffman:
         
         if root.char is not None:
             self.codes[root.char] = code
-            self.reverse[code] = root.char
+            self.reversing[code] = root.char
             return
 
         self.assigment(root.left, code + '0')
         self.assigment(root.left, code + '1')
 
-    def building(sself, root):
+    def building(self, root):
         self.codes = {}
         self.reverse = {}
         if root:
@@ -63,7 +63,7 @@ class Huffman:
         
     def get_encoded(self, text):
         encoded = ''
-        for char in test:
+        for char in text:
             encoded += self.codes[char]
         return encoded
 
@@ -76,7 +76,7 @@ class Huffman:
     
     def get_byte(self, fill_text):
         b = bytearray()
-        for i in range(len(fill_text), 8):
+        for i in range(0, len(fill_text), 8):
             byte = fill_text[i:i+8]
             b.append(int(byte, 2))
         return b
@@ -111,8 +111,8 @@ class Huffman:
 
         for bit in encoded_text:
             current_code += bit
-            if current_code in self.reverse:
-                char = self.reverse[current_code]
+            if current_code in self.reversing:
+                char = self.reversing[current_code]
                 decoded_text += char
                 current_code = ''
 
@@ -121,7 +121,7 @@ class Huffman:
     def decompress(self, compressed_text):
         bit_string = ''
         for byte in compressed_text:
-            bits = bin(byte)[2:].rqust(8, '0')
+            bits = bin(byte)[2:].rjust(8, '0')
             bit_string += bits
 
         encoded_text = self.remove_filled(bit_string)
