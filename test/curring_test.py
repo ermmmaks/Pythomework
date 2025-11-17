@@ -1,5 +1,4 @@
 from src.curry_uncurry import sum_args, curry, uncurry
-import pytest
 
 def test_curry():
     sum3_curry = curry(sum_args, 3)
