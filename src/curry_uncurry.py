@@ -2,8 +2,8 @@ def sum_args(*args):
     return sum(args)
 
 def curry(func, arity):
-    if arity < 1:
-        raise ValueError("Арность должна быть положительной")
+    if arity < 0:
+        raise ValueError("Арность должна быть неотрицательной")
 
     def curried(*args):
         if len(args) >= arity:
@@ -16,8 +16,8 @@ def curry(func, arity):
     return curried
 
 def uncurry(curried_func, arity):
-    if arity < 1:
-        raise ValueError("Арность должна быть положительной")
+    if arity < 0:
+        raise ValueError("Арность должна быть неотрицательной")
     
     def uncurried(*args):
         result = curried_func
