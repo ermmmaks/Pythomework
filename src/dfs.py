@@ -25,8 +25,8 @@ class Graph:
                     elif edge[1] == vertex:
                         neighbors.append(edge[0])
                     
-                    for neighbor in neighbors:
-                        step(neighbor)
+                for neighbor in neighbors:
+                    step(neighbor)
 
         for vertex in self.vertices:
             if vertex not in passed:
