@@ -1,4 +1,4 @@
-from src.pyramid_sort_alg import build_subroot, build_pyramid
+from src.pyramid_sort_alg import build_pyramid
 from src.conftest import rndm  # noqa F401
 import pytest
 
