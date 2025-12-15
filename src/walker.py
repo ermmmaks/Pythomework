@@ -1,4 +1,5 @@
 import random
+import math
 from collections import deque
 
 class WalkersAlias:
@@ -29,7 +30,7 @@ class WalkersAlias:
             s = short.popleft()
             l = long.popleft()
 
-            self.prob_table[s] = columns_probs[l]
+            self.prob_table[s] = columns_probs[s]
             self.alias_table[s] = l
 
             columns_probs[l] -= (1.0 - columns_probs[s])
@@ -39,10 +40,10 @@ class WalkersAlias:
             else:
                 long.append(l)
 
-            while short:
-                self.prob_table[short.popleft()] = 1.0
-            while long:
-                self.prob_table[long.popleft()] = 1.0
+        while short:
+            self.prob_table[short.popleft()] = 1.0
+        while long:
+            self.prob_table[long.popleft()] = 1.0
 
     def get_random(self):
         e = random.randint(0, self.ln - 1)
