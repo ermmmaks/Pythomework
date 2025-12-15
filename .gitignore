@@ -169,7 +169,6 @@ cython_debug/
 poetry.toml
 
 # ruff
-.__pycache__/
 .ruff_cache/
 
 # LSP config files

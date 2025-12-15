@@ -1,5 +1,5 @@
 from src.pyramid_sort_alg import build_subroot, build_pyramid
-from conftest import random  # noqa F401
+from src.conftest import rndm  # noqa F401
 import pytest
 
 
