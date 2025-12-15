@@ -1,4 +1,3 @@
-import pytest
 import math
 from src.walker import WalkersAlias
 

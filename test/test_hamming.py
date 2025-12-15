@@ -1,4 +1,3 @@
-import pytest
 from src.hamming import encode, decode
 
 def test_encode():
